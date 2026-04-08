@@ -4,7 +4,7 @@ function addPlayer() {
   const input = document.getElementById("playerName");
   const name = input.value;
 
-  if (name === "") return;
+  if (!name) return;
 
   players.push(name);
   input.value = "";
