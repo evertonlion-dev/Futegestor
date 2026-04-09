@@ -37,6 +37,4 @@ function renderPlayers() {
 function saveData() {
   localStorage.setItem("players", JSON.stringify(players));
 }
-
 renderPlayers();
-alert("Adicionado com sucesso ✅");
