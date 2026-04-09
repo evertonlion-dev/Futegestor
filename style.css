@@ -64,6 +64,20 @@ li {
   border-radius: 10px;
 }
 
+li {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 /* BOTÃO REMOVER */
 li button {
   background-color: #d50000;
