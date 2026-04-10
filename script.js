@@ -2,10 +2,16 @@ let players = JSON.parse(localStorage.getItem("players")) || [];
 
 function addPlayer() {
   alert("Adicionado com sucesso ✅");
-  const input = document.getElementById("playerName");
+  const input = document.getElementById("playerName")
+  .addEventListener("keypress", function(e) {
+    if (e.key === "Enter") addPlayer();
+});
   const name = input.value;
 
-  if (!name) return;
+  if (players.length === 0) {
+  list.innerHTML = "<p>Nenhum jogador ainda</p>";
+  return;
+}
 
   players.push(name);
   input.value = "";
