@@ -1,23 +1,21 @@
 let players = JSON.parse(localStorage.getItem("players")) || [];
 
 function addPlayer() {
-  alert("Adicionado com sucesso ✅");
-  const input = document.getElementById("playerName")
-  .addEventListener("keypress", function(e) {
-    if (e.key === "Enter") addPlayer();
-});
+  const input = document.getElementById("playerName");
   const name = input.value;
 
-  if (players.length === 0) {
-  list.innerHTML = "<p>Nenhum jogador ainda</p>";
-  return;
-}
+  if (!name) {
+    showToast("Digite um nome ⚠️");
+    return;
+  }
 
   players.push(name);
   input.value = "";
 
   saveData();
   renderPlayers();
+
+  showToast("Jogador adicionado ⚽");
 }
 
 function renderPlayers() {
@@ -51,4 +49,13 @@ function saveData() {
   localStorage.setItem("players", JSON.stringify(players));
 }
 
+/* 🔥 EVENTO ENTER (NO LUGAR CERTO) */
+document.getElementById("playerName")
+  .addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      addPlayer();
+    }
+});
+
+/* INICIALIZA */
 renderPlayers();
